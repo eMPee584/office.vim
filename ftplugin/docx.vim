@@ -13,6 +13,6 @@ if isdirectory(expand('$DOCXHOME'))
     autocmd BufReadPre *.docx set wrap
     " This prevents the hit-enter prompt and allows me to operate
     " without anitword being in the system path
-    exec 'autocmd BufReadPost *.docx %! python '.expand($DOCXHOME).'docx-extract.py ' .escape(expand('%'),' ')
+    exec 'autocmd BufReadPost *.docx :silent! %! python '.expand($DOCXHOME).'docx-extract.py ' .escape(expand('%'),' ')
     exec 'autocmd BufReadPost *.docx :set nolist'
 endif

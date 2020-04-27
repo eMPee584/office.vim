@@ -9,9 +9,9 @@ if isdirectory(expand('$PDFTKHOME'))
     " This prevents the hit-enter prompt and allows me to operate
     " without anitword being in the system path
     " exec 'autocmd BufReadPost *.pdf %! '.expand($PDFTKHOME).'pdftotext -layout "%" -'
-    exec 'autocmd BufReadPost *.pdf %! '.expand($PDFTKHOME).'pdftotext -nopgbrk -layout -q -eol unix "%" -'
+    exec 'autocmd BufReadPost *.pdf :silent! %! '.expand($PDFTKHOME).'pdftotext -nopgbrk -layout -q -eol unix "%" -'
     exec 'autocmd BufReadPost *.pdf :set nolist'
-    exec 'autocmd BufReadPost *.pdf :g/^$/d'
-    exec 'autocmd BufReadPost *.pdf :%s/^\s*\d\+$//'
+    exec 'autocmd BufReadPost *.pdf :silent! g/^$/d'
+    exec 'autocmd BufReadPost *.pdf :silent! %s/^\s*\d\+$//'
     " exec 'autocmd BufReadPost *.pdf :g/\n^$/normal! vipJ'
 endif

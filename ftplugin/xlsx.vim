@@ -14,6 +14,6 @@ if isdirectory(expand('$XLS'))
     autocmd BufReadPre *.xlsx set hlsearch!
     " This prevents the hit-enter prompt and allows me to operate
     " without xls being in the system path
-    exec 'autocmd BufReadPost *.xlsx %! python '.expand($XLS).'xlsx2csv.py "%"'
+    exec 'autocmd BufReadPost *.xlsx :silent! %! python '.expand($XLS).'xlsx2csv.py "%"'
     autocmd BufReadPost *.xlsx redraw
 endif
